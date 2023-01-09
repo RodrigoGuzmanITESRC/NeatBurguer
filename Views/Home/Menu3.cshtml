@@ -1,0 +1,39 @@
+﻿@model NeatBurguer.Models.ViewModels.Menu3ViewModel
+<html>
+<head>
+    <link href="~/estilos.css" rel="stylesheet" />
+    <title>Neat Burguer</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="~/">Principal</a>
+            <a href="~/menu1/1">Menú Estilo 1</a>
+            <a href="~/Home/menu2">Menú Estilo 2</a>
+            <a href="~/menu3/1">Menú Estilo 3</a>
+        </nav>
+    </header>
+    <main>
+        <section class="menu3">
+
+            <div>
+                <h1>NUESTRO MENÚ</h1>
+
+                @foreach (var menu in Model.Menus)
+                {
+                    <h2 class="seleccionado">
+                        <a href="~/menu3/@(menu.Id)">
+                            <span>@menu.Nombre</span> <span class="price">$@menu.Precio
+                            </span>
+                            </a>
+                            </h2>
+                }
+            </div>
+            <div>
+                <img style="width:100%" src="~/images/@(Model.IdMenu).jpg" />
+                <p>@Model.Descripcion</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

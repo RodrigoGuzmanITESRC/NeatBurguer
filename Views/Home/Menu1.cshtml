@@ -1,0 +1,46 @@
+﻿@model NeatBurguer.Models.ViewModels.Menu1ViewModel
+
+<html>
+<head>
+    <link href="~/estilos.css" rel="stylesheet" />
+    <title>Neat Burguer</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="~/">Principal</a>
+            <a href="~/menu1/1">Menú Estilo 1</a>
+            <a href="~/Home/menu2">Menú Estilo 2</a>
+            <a href="~/menu3/1">Menú Estilo 3</a>
+        </nav>
+    </header>
+    <main>
+        <section class="menu1">
+            <img src="~/images/@(Model.Id).jpg" />
+            <div class="datos">
+                <h3>$@Model.Precio</h3>
+                <h2>@Model.Nombre</h2>
+                <p>@Model.Descripción</p>
+            </div>
+            <span>
+
+
+                @{
+                    if (Model.OpcionAnterior != 0)
+                    {
+                        <a href="~/menu1/@(Model.OpcionAnterior)">&lt;</a>
+                    }
+                }
+
+                @{
+                    if (Model.OpcionSiguiente != 0)
+                    {
+                        <a href="~/menu1/@(Model.OpcionSiguiente)">&gt;</a>
+                    }
+                }
+
+
+            </span>
+    </main>
+</body>
+</html>

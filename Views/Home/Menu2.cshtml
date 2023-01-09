@@ -1,0 +1,34 @@
+﻿@model IEnumerable<NeatBurguer.Models.Clasificacion>
+<html>
+<head>
+    <link href="~/estilos.css" rel="stylesheet" />
+    <title>Neat Burguer</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <a href="~/">Principal</a>
+            <a href="~/menu1/1">Menú Estilo 1</a>
+            <a href="~/Home/menu2">Menú Estilo 2</a>
+            <a href="~/menu3/1">Menú Estilo 3</a>
+        </nav>
+    </header>
+    <main>
+        <section class="menu2">
+            @foreach (var n in Model)
+            {
+                <h1>@n.Nombre</h1>
+                @foreach (var k in n.Menus)
+                {
+                    <div>
+                        <img src="~/images/@(k.Id).jpg" />
+                        <h1>@k.Nombre</h1>
+                        <h2>@k.Precio.ToString("c")</h2>
+                        <p>@k.Descripción</p>
+                    </div>
+                }
+            }
+        </section>
+    </main>
+</body>
+</html>
